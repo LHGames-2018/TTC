@@ -28,6 +28,10 @@ class Bot:
             if player.Position == player.HouseLocation and gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.House:
                 return create_attack_action(Point(dir, 0))
 
+        for player in visiblePlayers:
+            if player.Score == 0 and gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.House:
+                return create_move_action(Point(dir, 0))
+
         if Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y) == self.PlayerInfo.HouseLocation:
             return create_move_action(Point(dir, 0))
         elif gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.Player:
