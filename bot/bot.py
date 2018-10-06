@@ -26,9 +26,9 @@ class Bot:
   #      print("---")
 
         if self.PlayerInfo.CarriedResources == 500:
-            dir = 1
-        else:
             dir = -1
+        else:
+            dir = 1
 
         if Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y) == self.PlayerInfo.HouseLocation:
             return create_move_action(Point(dir, 0))
