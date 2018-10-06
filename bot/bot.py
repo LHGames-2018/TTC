@@ -13,17 +13,35 @@ class Bot:
         self.PlayerInfo = playerInfo
 
     def execute_turn(self, gameMap, visiblePlayers):
-        
-        
-        
         """
         This is where you decide what action to take.
             :param gameMap: The gamemap.
             :param visiblePlayers:  The list of visible players.
         """
 
-        # Write your bot here. Use functions from aiHelper to instantiate your actions.
-        return create_move_action(Point(-1, 0))
+  #      print("---")
+  #      print(self.PlayerInfo.Position)
+  #      print(self.PlayerInfo.CarriedResources)
+  #      print(self.PlayerInfo.CarryingCapacity)
+  #      print("---")
+
+        if self.PlayerInfo.CarriedResources == 500:
+            dir = 1
+        else:
+            dir = -1
+
+        if Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y) == self.PlayerInfo.HouseLocation:
+            return create_move_action(Point(dir, 0))
+        elif (gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.Player):
+            return create_attack_action(Point(dir, 0))
+        elif (gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.House):
+            return create_steal_action(Point(dir, 0))
+        elif (gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.Wall):
+            return create_attack_action(Point(dir, 0))
+        elif (gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.Resource):
+            return create_collect_action(Point(dir, 0))
+        else:
+            return create_move_action(Point(dir, 0))
 
     def after_turn(self):
         """
