@@ -20,9 +20,9 @@ class Bot:
         """
 
         if self.PlayerInfo.CarriedResources >= 1:
-            dir = 1
-        else:
             dir = -1
+        else:
+            dir = 1
 
         for player in visiblePlayers:
             if player.Position == player.HouseLocation and gameMap.getTileAt(Point(self.PlayerInfo.Position.x + dir, self.PlayerInfo.Position.y)) == TileContent.House:
