@@ -19,7 +19,7 @@ class Bot:
             :param visiblePlayers:  The list of visible players.
         """
 
-        if self.PlayerInfo.CarriedResources >= 1:
+        if self.PlayerInfo.CarriedResources >= 500:
             dir = -1
         else:
             dir = 1
