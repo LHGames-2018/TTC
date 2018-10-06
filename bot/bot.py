@@ -62,6 +62,8 @@ class Bot:
             return create_attack_action(boteast)
         elif gameMap.getTileAt(botwest) == TileContent.Wall:
             return create_attack_action(botwest)
+        elif gameMap.getTileAt(botnorth) == TileContent.Wall:
+            return create_attack_action(botnorth)
 
         if len(playerxy) > 0:
 
