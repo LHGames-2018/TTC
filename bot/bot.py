@@ -21,8 +21,8 @@ class Bot:
 
         botnorth = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.y-1)
         botsouth = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.y+1)
-        boteast = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.x-1)
-        botwest = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.x+1)
+        boteast = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.x+1)
+        botwest = Point(self.PlayerInfo.Position.x,self.PlayerInfo.Position.x-1)
 
         wallxy = []                 #arrays for position of all type of tiles
         housexy = []
