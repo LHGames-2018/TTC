@@ -86,41 +86,11 @@ class Bot:
                  return create_move_action(Point(-1,0))
 
 
-        print(botviewminx)                  #affichage pour tester
-        print(botviewmaxx)
-        print(botviewminy)
-        print(botviewmaxy)
-        print("wall:")
-        for n in wallxy:
-            print(n)
-        print(len(wallxy))
-        print("house:")
-        for n in housexy:
-            print(n)
-        print(len(housexy))
-        print("lava:")
-        for n in lavaxy:
-            print(n)
-        print(len(lavaxy))
-        print("resource:")
-        for n in resxy:
-            print(n)
-        print(len(resxy))
-        print("shop:")
-        for n in shopxy:
-            print(n)
-        print(len(shopxy))
-        print("player:")
-        for n in playerxy:
-            print(n)
-        print(len(playerxy))
-        print("fin")
 
 
 
 
         # Write your bot here. Use functions from aiHelper to instantiate your actions.
-        return create_move_action(Point(-1,0))
 
         #return create_collect_action(Point(-1,0))
 
