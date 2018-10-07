@@ -18,7 +18,7 @@ class Bot:
         """
         self.PlayerInfo = playerInfo
         playerxy = playerInfo.Position
-        print(playerxy)
+        #print(playerxy)
 
     def execute_turn(self, gameMap, visiblePlayers):
         """
@@ -64,8 +64,8 @@ class Bot:
                     shopxy.append(pointxy)
                 elif gameMap.getTileAt(pointxy) == TileContent.Player and pointxy != actualbotposition: #pour pas se prendre lui meme
                     playerxy.append(pointxy)
-        print(len(playerxy))
-        print(self.gohorizontale)
+        #print(len(playerxy))
+        #print(self.gohorizontale)
 
 
         #
@@ -159,12 +159,14 @@ class Bot:
        #print(len(playerxy))
 #        print("fin")
         if gameMap.getTileAt(botnorth) == TileContent.Player:  # attaque autre joueur si a cote
-            return create_attack_action(botnorth)
-
-        if gameMap.getTileAt(botnorth) == TileContent.Wall:  # attaque autre joueur si a cote
-            return create_attack_action(botnorth)
-
-        return create_move_action(nord)
+            print("attaqueplayer")
+            return create_attack_action(nord)
+        elif gameMap.getTileAt(botnorth) == TileContent.Wall:  # attaque autre joueur si a cote
+            print("attaqueWall")
+            return create_attack_action(nord)
+        else:
+            print("move up")
+            return create_move_action(nord)
 
         # Write your bot here. Use functions from aiHelper to instantiate your actions.
 
